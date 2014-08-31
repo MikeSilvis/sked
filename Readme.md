@@ -1,6 +1,25 @@
 # Sked
 
-TODO: Write a gem description
+## Purpose
+
+Schedule daily jobs to run at a specific time using one global cron job.
+(In my case Heroku Scheduler)
+
+## Usage
+
+Set up a cron job to run `bundle exec rake sked:all` and it will
+automatically find all jobs that should be run at the specific time.
+
+Include the following in any class that you want to run.
+
+```
+  include Sked::Worker
+  append_job({:time => 0, :type => :daily})
+```
+
+The rake task automatically schedules it using a background job. It will
+work with both resque and Sidekiq, or any other library that responds to
+a `perform_async` method.
 
 ## Installation
 
