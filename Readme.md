@@ -12,7 +12,7 @@ automatically find all jobs that should be run at the specific time.
 
 Include the following in any class that you want to run.
 
-```
+``` ruby
   include Sked::Worker
   append_job({:time => 0, :type => :daily})
 ```
