@@ -1,0 +1,8 @@
+class <%= @name.capitalize %>
+  include Sked::Worker
+  # Handles scheduling of the job (in UTC)
+  append_job({:time => 0, :type => :daily})
+
+  def perform
+  end
+end

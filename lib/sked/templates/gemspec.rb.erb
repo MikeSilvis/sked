@@ -1,0 +1,11 @@
+Gem::Specification.new do |s|
+  s.name        = "<%= @name %>"
+  s.version     = "1.0.0"
+  s.authors     = ["<%= `git config --global user.name`.delete("\n") %>"]
+  s.email       = ["<%= `git config --global user.email`.delete("\n") %>"]
+  s.homepage    = "http://mikesilvis.com"
+  s.summary     = "The background job relating to the <%= @name %> worker"
+  s.description = "The background job relating to the <%= @name %> worker"
+
+  s.files = `git ls-files`.split($/)
+end
