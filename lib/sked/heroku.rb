@@ -8,19 +8,19 @@ module Sked
           client.post_ps_restart(settings.app_name)
         end
       end
+
       def client
-        @@client ||= if configured?
-                       ::Heroku::API.new(api_key: settings.api_key)
-                     else
-                       nil
-                     end
+        @@client ||= ::Heroku::API.new(api_key: settings.api_key) if configured?
       end
+
       def running?
         (client.get_ps(settings.app_name).body.first['pretty_state'] =~ /up/)
       end
+
       def configured?
         !!Sked::Settings.config.heroku
       end
+
       def settings
         Sked::Settings.heroku
       end

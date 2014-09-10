@@ -10,6 +10,7 @@ require_relative './sked/scaffold'
 require_relative './sked/settings'
 require_relative './sked/heroku'
 require_relative './sked/web'
+require_relative './sked/railtie' if defined? Rails::Railtie
 
 module Sked
   def self.redis
